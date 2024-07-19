@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
+import {useSelector} from 'react-redux'
 
 
 const Navbar = () => {
+
+    const amount = useSelector((store)=> store.basket.amount)
 
   return (
     <div className="flex justify-between px-8 items-center pt-2 font-medium h-20 bg-[#d3f3b5]">
@@ -13,6 +16,7 @@ const Navbar = () => {
         <a className="hover:scale-110 transition duration-200 hover:font-bold text-[#cb3075]" > Home</a>
         <a className=" hover:scale-110 transition duration-200 hover:font-bold text-[#cb3075]" > 
         Basket
+        <span> ({amount})</span>
         </a>
       </div>
     </div>
