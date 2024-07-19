@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { decreaseAmount, increaseAmount } from "../features/basketSlice";
+import { decreaseAmount, increaseAmount, removeProduct } from "../features/basketSlice";
 
 const Product = ({ name, price, amount, image }) => {
   const dispatch = useDispatch();
@@ -38,7 +38,9 @@ const Product = ({ name, price, amount, image }) => {
             </button>
           </div>
           <p className="font-mono text-lg text-white">amount: {amount}</p>
-          <button className="text-red-500 font-mono "> Remove </button>
+          <button 
+          className="text-red-500 font-mono "
+          onClick={() =>{dispatch(removeProduct({name}))}}> Remove </button>
         </div>
       </div>
     </div>
