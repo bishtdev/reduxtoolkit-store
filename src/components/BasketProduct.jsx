@@ -8,6 +8,10 @@ const BasketProduct = () =>{
 
     return (
         <>
+        <div className="flex gap-10 justify-center items-center my-4">
+            <p className="font-mono text-2xl ">Total : </p>
+            <p className="font-mono text-2xl ">${total}</p>
+        </div>
         <div className="flex flex-row flex-wrap gap-5 justify-center my-4">
             {products.map((item, i)=>{
                 return <Product
@@ -19,10 +23,7 @@ const BasketProduct = () =>{
                         />
             })}
         </div>
-        <div className="flex gap-10 justify-center items-center my-4">
-            <p className="font-mono text-2xl ">Total : </p>
-            <p className="font-mono text-2xl ">${total}</p>
-        </div>
+        
         </>
       );
 }
