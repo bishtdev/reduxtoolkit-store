@@ -11,3 +11,4 @@ const basketSlice = createSlice({
     initialState,
 })
 
+export default basketSlice.reducer
