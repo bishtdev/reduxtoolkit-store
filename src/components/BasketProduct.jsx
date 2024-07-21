@@ -8,6 +8,7 @@ const BasketProduct = () =>{
 
     return (
         <>
+        {amount > 1 ? (<>  
         <div className="flex gap-10 justify-center items-center my-4">
             <p className="font-mono text-2xl ">Total : </p>
             <p className="font-mono text-2xl ">${total}</p>
@@ -22,7 +23,9 @@ const BasketProduct = () =>{
                         amount={item.amount}
                         />
             })}
-        </div>
+        </div> </>) : ( <> <p className="font-bold text-4xl text-center text-[#cb3075]"> Your Cart is Empty </p> </>)
+        }
+
         
         </>
       );

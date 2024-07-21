@@ -1,6 +1,10 @@
 import React, { useContext } from "react";
 import { useDispatch } from "react-redux";
-import { decreaseAmount, increaseAmount, removeProduct } from "../features/basketSlice";
+import {
+  decreaseAmount,
+  increaseAmount,
+  removeProduct,
+} from "../features/basketSlice";
 
 const Product = ({ name, price, amount, image }) => {
   const dispatch = useDispatch();
@@ -26,21 +30,35 @@ const Product = ({ name, price, amount, image }) => {
           <div className="flex gap-3">
             <button
               className="px-4 py-2 bg-[#d3f3b5] hover:bg-[#b9eb8e] rounded-md"
-              onClick={() => {dispatch(increaseAmount({name}))}}
+              onClick={() => {
+                dispatch(increaseAmount({ name }));
+              }}
             >
               +
             </button>
             <button
               className="px-5 py-2 bg-[#d3f3b5] hover:bg-[#b9eb8e] rounded-md"
-              onClick={() => {if(amount > 1) dispatch(decreaseAmount({name}))}}
+              onClick={() => {
+                if (amount <= 1) {
+                  dispatch(removeProduct({ name }));
+                  return;
+                }
+                dispatch(decreaseAmount({ name }));
+              }}
             >
               -
             </button>
           </div>
           <p className="font-mono text-lg text-white">amount: {amount}</p>
-          <button 
-          className="text-red-500 font-mono "
-          onClick={() =>{dispatch(removeProduct({name}))}}> Remove </button>
+          <button
+            className="text-red-500 font-mono "
+            onClick={() => {
+              dispatch(removeProduct({ name }));
+            }}
+          >
+            {" "}
+            Remove{" "}
+          </button>
         </div>
       </div>
     </div>
